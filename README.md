@@ -1,6 +1,6 @@
 # Flippeur
 
-Flippeur is a simple feature flipper.  Features are setup with a simple Ruby DSL which lets you use any logic you like to determine whether or not a feature is available to a user.
+Flippeur is a simple feature flipper.  Features are setup with a simple Ruby DSL where you specify whether a feature is available to a user.
 
 If you're using Rails you can pop your feature definition file in an initializer.
 
@@ -116,4 +116,9 @@ This is suboptimal and should be revisited...
 * [Flipper](https://github.com/jnunemaker/flipper)
 * [Flip](https://github.com/pda/flip)
 * [Rollout](https://github.com/jamesgolick/rollout)
+
+
+## Intellectual Property
+
+Copyright Andy Stewart, AirBlade Software.  Released under the MIT licence.
 

@@ -10,7 +10,7 @@ Gem::Specification.new do |gem|
   gem.email         = ["boss@airbladesoftware.com"]
   gem.description   = %q{Simple feature flipping.}
   gem.summary       = %q{Simple feature flipping.}
-  gem.homepage      = ""
+  gem.homepage      = "https://github.com/airblade/flippeur"
 
   gem.files         = `git ls-files`.split($/)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
