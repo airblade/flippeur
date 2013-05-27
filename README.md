@@ -1,6 +1,8 @@
 # Flippeur
 
-Flippeur is a simple feature flipper for Rails.  Features are setup in a Rails initializer and you can use any logic you like to determine whether or not a feature is available to a user.
+Flippeur is a simple feature flipper.  Features are setup with a simple Ruby DSL which lets you use any logic you like to determine whether or not a feature is available to a user.
+
+If you're using Rails you can pop your feature definition file in an initializer.
 
 Features are not stored in a database and there's no web UI for toggling them.
 
@@ -24,9 +26,9 @@ The basic idea is that a feature is, or isn't, available to a user of your webap
 
 In the view and the controller layers, the user is obtained automatically by calling the controller's `current_person` method (currently and regrettably hardcoded).  In the model layer you need to pass an appropriate user instance explicitly.
 
-As an aside, the model layer doesn't feel optimal and I'm open to ideas.
+(This is suboptimal and I'm exploring alternatives.)
 
-First, setup your features in a Rails initializer.
+First, setup your features.  With Rails this would go in `config/initializers/flippeur.rb`.
 
 ```ruby
 Flippeur.setup do
@@ -42,7 +44,7 @@ Flippeur.setup do
 end
 ```
 
-Give each feature a name and a block.  The block should return truthy if the feature is available to the user, and falsey otherwise.
+Give each feature a name and a block.  The block should return a truthy value if the feature is available to the user, and a falsey value otherwise.
 
 N.B. to return early from the block, use `next retvalue` instead of `return retvalue`.  For example:
 

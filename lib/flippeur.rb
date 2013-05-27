@@ -4,7 +4,10 @@ require "flippeur/version"
 
 module Flippeur
 
+  UnknownFeature = Class.new RuntimeError
+
   def self.setup(&block)
+    reset
     module_eval &block
   end
 
@@ -19,7 +22,11 @@ module Flippeur
   private
 
   def self.features
-    @features ||= Hash.new { |_,k| raise "Unknown feature: #{k}" }
+    @features ||= Hash.new { |_,k| raise UnknownFeature, "Unknown feature: #{k}" }
+  end
+
+  def self.reset
+    @features = nil
   end
   
 end
