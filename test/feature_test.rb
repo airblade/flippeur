@@ -19,14 +19,14 @@ class FeatureTest < MiniTest::Unit::TestCase
 
   def test_available_feature
     Flippeur.setup do
-      feature(:foo) { |user| user.id == 42 }
+      feature(:foo) { |actor| actor.id == 42 }
     end
     assert Flippeur.find(:foo).available?( OpenStruct.new(id: 42) )
   end
 
   def test_unavailable_feature
     Flippeur.setup do
-      feature(:foo) { |user| user.id == 42 }
+      feature(:foo) { |actor| actor.id == 42 }
     end
     refute Flippeur.find(:foo).available?( OpenStruct.new(id: 153) )
   end

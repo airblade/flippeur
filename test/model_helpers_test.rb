@@ -23,14 +23,14 @@ class ModelHelpersTest < MiniTest::Unit::TestCase
 
   def test_available_feature_as_boolean
     Flippeur.setup do
-      feature(:foo) { |user| true }
+      feature(:foo) { |actor| true }
     end
     assert @model.feature?(:foo, Object.new)
   end
 
   def test_available_feature_with_block
     Flippeur.setup do
-      feature(:foo) { |user| true }
+      feature(:foo) { |actor| true }
     end
     block_called = false
     @model.feature?(:foo, Object.new) do
@@ -41,14 +41,14 @@ class ModelHelpersTest < MiniTest::Unit::TestCase
 
   def test_unavailable_feature_as_boolean
     Flippeur.setup do
-      feature(:foo) { |user| false }
+      feature(:foo) { |actor| false }
     end
     refute @model.feature?(:foo, Object.new)
   end
 
   def test_unavailable_feature_with_block
     Flippeur.setup do
-      feature(:foo) { |user| false }
+      feature(:foo) { |actor| false }
     end
     block_called = false
     @model.feature?(:foo, Object.new) do

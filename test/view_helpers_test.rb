@@ -26,14 +26,14 @@ class ViewHelpersTest < MiniTest::Unit::TestCase
 
   def test_available_feature_as_boolean
     Flippeur.setup do
-      feature(:foo) { |user| true }
+      feature(:foo) { |actor| true }
     end
     assert @view.feature?(:foo)
   end
 
   def test_available_feature_with_block
     Flippeur.setup do
-      feature(:foo) { |user| true }
+      feature(:foo) { |actor| true }
     end
     block_called = false
     @view.feature?(:foo) do
@@ -44,14 +44,14 @@ class ViewHelpersTest < MiniTest::Unit::TestCase
 
   def test_unavailable_feature_as_boolean
     Flippeur.setup do
-      feature(:foo) { |user| false }
+      feature(:foo) { |actor| false }
     end
     refute @view.feature?(:foo)
   end
 
   def test_unavailable_feature_with_block
     Flippeur.setup do
-      feature(:foo) { |user| false }
+      feature(:foo) { |actor| false }
     end
     block_called = false
     @view.feature?(:foo) do

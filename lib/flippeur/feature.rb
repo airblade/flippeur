@@ -7,8 +7,8 @@ module Flippeur
       @block = block
     end
 
-    def available?(user)
-      block.call user
+    def available?(actor)
+      block.call actor
     end
   end
 end
