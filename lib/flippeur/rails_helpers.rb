@@ -2,7 +2,7 @@ module Flippeur
 
   module ViewHelpers
     def feature?(name)
-      available = Flippeur.find(name).available? @controller.send(Flippeur.actor)
+      available = Flippeur.find(name).available? controller.send(Flippeur.actor)
       block_given? ? (yield if available) : available
     end
   end
